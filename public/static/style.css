@@ -22,3 +22,15 @@ body {
   align-items: center;
   background-color: #00AB82;
 }
+
+element.style {
+}
+.loginViewWrapper {
+    width: 354px;
+    height: 415px;
+    position: relative;
+    text-align: center;
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: -10px;
+}
