@@ -20,7 +20,7 @@ body {
 .loginController{
   justify-content: center;
   align-items: center;
-  background-color: #00AB82;
+  background-color: #00AC47;
 }
 
 element.style {
@@ -33,4 +33,10 @@ element.style {
     max-width: 100%;
     max-height: 100%;
     margin-top: -10px;
+    overflow: visible;
+}
+.loginViewWrapper img{
+  height: 41px;
+  /* overflow: visible; */
+  margin-bottom: 20px;
 }
