@@ -1,5 +1,6 @@
 import React from 'react';
 import LoginController from './LoginController';
+import MainController from './MainController';
 import * as firebase from 'firebase';
 export default class RootController extends React.Component {
   constructor(props){
@@ -12,19 +13,12 @@ export default class RootController extends React.Component {
       storageBucket: "pharmaplus-782c8.appspot.com",
       messagingSenderId: "191482422002"
     };
-    var app = firebase.initializeApp(config);
-    var db = firebase.database();
-    var ref = db.ref("users");
-    ref.on("value", function(snapshot) {
-        console.log(snapshot.val());
-    }, function (errorObject) {
-      console.log("The read failed: " + errorObject.code);
-    });
+    firebase.initializeApp(config);
   }
   render() {
     return (
       <div className="rootController">
-        <LoginController/>
+        <MainController/>
       </div>
     );
   }
