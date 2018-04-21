@@ -17,13 +17,16 @@ export default class MainController extends React.Component {
     var locationBackgroundRef = db.ref("locationBackground");
     locationBackgroundRef.on("value", function(snapshot) {
         let snapshotValue = snapshot.val()
+        let locations = []
         for (var key in snapshotValue) {
           let location = new Location(snapshotValue[key]);
           console.log(location);
+          locations.push(location);
+          this.setState(locations:locations);
         }
     }, function (errorObject) {
       console.log("The read failed: " + errorObject.code);
-    });
+    },this);
   }
   render() {
     return (
