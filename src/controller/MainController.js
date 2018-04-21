@@ -10,6 +10,13 @@ export default class MainController extends React.Component {
     }, function (errorObject) {
       console.log("The read failed: " + errorObject.code);
     });
+
+    var usersRef = db.ref("locationBackground");
+    usersRef.on("value", function(snapshot) {
+        console.log(snapshot.val());
+    }, function (errorObject) {
+      console.log("The read failed: " + errorObject.code);
+    });
   }
   render() {
     return (
