@@ -5,6 +5,7 @@ export default class MainController extends React.Component {
   constructor(props){
     super(props)
     var db = firebase.database();
+    this.state = {locations:null}
     var usersRef = db.ref("users");
     usersRef.on("value", function(snapshot) {
         console.log(snapshot.val());
@@ -15,23 +16,32 @@ export default class MainController extends React.Component {
     //
 
     var locationBackgroundRef = db.ref("locationBackground");
-    locationBackgroundRef.on("value", function(snapshot) {
+    let callback = function(snapshot) {
         let snapshotValue = snapshot.val()
         let locations = []
         for (var key in snapshotValue) {
           let location = new Location(snapshotValue[key]);
-          console.log(location);
           locations.push(location);
-          this.setState(locations:locations);
         }
-    }, function (errorObject) {
+        this.setState({locations:locations});
+    }
+    callback = callback.bind(this);
+    locationBackgroundRef.on("value", callback, function (errorObject) {
       console.log("The read failed: " + errorObject.code);
-    },this);
+    });
   }
   render() {
+    console.log(this.state.locations);
     return (
       <div className="mainController">
       MAIN
+          {this.state.locations && this.state.locations.map(function(location, idx){
+          return (
+            <div>
+            {location.timestamp}
+             </div>
+          )
+          })}
       </div>
     );
   }
