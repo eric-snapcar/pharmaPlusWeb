@@ -11,6 +11,9 @@ export default class MainController extends React.Component {
     }, function (errorObject) {
       console.log("The read failed: " + errorObject.code);
     });
+
+    //
+
     var locationBackgroundRef = db.ref("locationBackground");
     locationBackgroundRef.on("value", function(snapshot) {
         let snapshotValue = snapshot.val()
