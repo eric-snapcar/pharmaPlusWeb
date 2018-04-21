@@ -1,5 +1,6 @@
 import React from 'react';
 import * as firebase from 'firebase';
+import moment from 'moment';
 import Location from '../object/Location';
 export default class MainController extends React.Component {
   constructor(props){
@@ -38,11 +39,14 @@ export default class MainController extends React.Component {
           {this.state.locations && this.state.locations.map(function(location, idx){
           return (
             <div>
-            {location.timestamp}
+            {this.display( new Date(location.timestamp * 1000))}
              </div>
           )
-          })}
+        },this)}
       </div>
     );
+  }
+  display(date){
+  return moment(date).format('dddd D MMMM h:mm');
   }
 }
