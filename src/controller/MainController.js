@@ -2,15 +2,22 @@ import React from 'react';
 import * as firebase from 'firebase';
 import moment from 'moment';
 import Location from '../object/Location';
+import User from '../object/User';
 export default class MainController extends React.Component {
   constructor(props){
     super(props)
     var db = firebase.database();
-    this.state = {locations:null}
+    this.state = {locations:null,users:null}
     var usersRef = db.ref("users");
     usersRef.on("value", function(snapshot) {
-        console.log(snapshot.val());
-    }, function (errorObject) {
+        let snapshotValue = snapshot.val()
+        let users = []
+        for (var key in snapshotValue) {
+          let user = new User(snapshotValue[key]);
+          users.push(user);
+        }
+        this.setState({users:users});
+    }.bind(this), function (errorObject) {
       console.log("The read failed: " + errorObject.code);
     });
 
@@ -43,6 +50,13 @@ export default class MainController extends React.Component {
              </div>
           )
         },this)}
+        {this.state.users && this.state.users.map(function(user, idx){
+        return (
+          <div>
+          {user.email}
+           </div>
+        )
+      },this)}
       </div>
     );
   }
