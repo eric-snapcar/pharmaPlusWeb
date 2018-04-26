@@ -2,7 +2,8 @@ export default class CarteVitale {
   // MARK: class override
     constructor(json){
         if ( json ) {
-          console.log(json);
+          this.email = json.email;
+          this.imageUrl = json.file_path;
         }
     }
 }
