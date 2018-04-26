@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button,ControlGroup,InputGroup, Intent} from "@blueprintjs/core";
-import UserController from './UserController';
+import CarteVitaleController from './CarteVitaleController';
 export default class MainController extends React.Component {
   constructor(props){
     super(props)
@@ -9,7 +9,7 @@ export default class MainController extends React.Component {
   render() {
     return (
       <div className="rootController">
-        <UserController />
+        <CarteVitaleController />
       </div>
     );
   }
