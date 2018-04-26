@@ -24,9 +24,25 @@ export default class CarteVitaleController extends React.Component {
   }
   render() {
     return (
-      <div className="rootController">
+      <div className="carteVitaleController">
         Carte Vitale
+        {this.state.carteVitales && this.state.carteVitales.map(function(carteVitale, idx){
+        return (
+          <CarteVitaleCell carteVitale={carteVitale} />
+        )
+      },this)}
       </div>
     );
+  }
+}
+
+
+class CarteVitaleCell extends React.Component {
+  render(){
+    return  (
+      <div onClick={() => this.props.onClick(this.props.carteVitale)} >
+        <div>{this.props.carteVitale.email}</div>
+        <div>{this.props.carteVitale.imageUrl}</div>
+    </div>)
   }
 }
