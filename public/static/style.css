@@ -38,3 +38,21 @@ element.style {
   height: 41px;
   margin-bottom: 20px;
 }
+
+
+.carteVitaleController  {
+  width: 100%;
+  max-width: 950px;
+}
+.carteVitaleController h2{
+  color: #162643;
+  font-size: 25.25px;
+  margin-bottom: 21px !important;
+  margin-top: 10px;
+}
+.carteVitaleController table {
+  border: 1px solid rgb(221, 223, 226);
+  border-radius: 1px;
+  width: 100%;
+  margin-bottom: 35px;
+}

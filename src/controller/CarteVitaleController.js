@@ -25,12 +25,14 @@ export default class CarteVitaleController extends React.Component {
   render() {
     return (
       <div className="carteVitaleController">
-        Carte Vitale
+        <h2>Carte Vitale</h2>
+        <table>
         {this.state.carteVitales && this.state.carteVitales.map(function(carteVitale, idx){
         return (
           <CarteVitaleCell carteVitale={carteVitale} />
         )
       },this)}
+      </table>
       </div>
     );
   }
