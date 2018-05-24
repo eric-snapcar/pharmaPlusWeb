@@ -22,6 +22,9 @@ export default class CarteVitaleController extends React.Component {
       console.log("The read failed: " + errorObject.code);
     });
   }
+  onValidate(carteVitale){
+    console.log(carteVitale);
+  }
   render() {
     return (
       <div className="carteVitaleController">
@@ -29,7 +32,7 @@ export default class CarteVitaleController extends React.Component {
         <table>
         {this.state.carteVitales && this.state.carteVitales.map(function(carteVitale, idx){
         return (
-          <CarteVitaleCell carteVitale={carteVitale} />
+          <CarteVitaleCell carteVitale={carteVitale} onValidate={this.onValidate} />
         )
       },this)}
       </table>
@@ -37,14 +40,18 @@ export default class CarteVitaleController extends React.Component {
     );
   }
 }
-
-
 class CarteVitaleCell extends React.Component {
   render(){
     return  (
-      <div onClick={() => this.props.onClick(this.props.carteVitale)} >
-        <div>{this.props.carteVitale.email}</div>
-        <div>{this.props.carteVitale.imageUrl}</div>
-    </div>)
+        <div className="carteVitaleTableRow">
+          <div>
+            <div className="title">{this.props.carteVitale.email}</div>
+            <div className="details">{this.props.carteVitale.imageUrl}</div>
+            <div className="carteVitaleTableRowButtons" >
+              <Button className="pt-small"  onClick={() => this.props.onValidate(this.props.carteVitale)}>Validate</Button>
+            </div>
+          </div>
+        </div>
+    )
   }
 }

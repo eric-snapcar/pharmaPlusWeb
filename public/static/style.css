@@ -56,3 +56,45 @@ element.style {
   width: 100%;
   margin-bottom: 35px;
 }
+.carteVitaleTableRowButtons{
+  position: absolute;
+  right: 1px;
+  display: flex;
+  top: 0px;
+  height: 100%;
+  align-items: center;
+  margin-right: 8px;
+}
+.carteVitaleTableRowButtons .pt-button , .settingsControllerWindowTitleButtons .pt-button {
+  outline: none !important;
+}
+.carteVitaleTableRow{
+  height: 60px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgb(221, 223, 226);
+  position: relative;
+}
+.carteVitaleTableRow .pt-tag{
+  padding: 0px 5px;
+  margin-left: 3px;
+  font-size: 11px;
+}
+.carteVitaleTableRow.empty{
+  justify-content: center;
+  color:rgb(128, 128, 128);
+  font-size:13px;
+}
+.carteVitaleTableRow.last{
+  border-bottom: 0px solid rgb(221, 223, 226);
+}
+.carteVitaleTableRow .title, .popOverFocusContent .title, .popOverRegisterContent .title{
+    color:rgb(29, 33, 41);
+    font-size:14px;
+    font-weight:700;
+}
+.carteVitaleTableRow .details, .popOverFocusContent .details, .popOverRegisterContent .details {
+    color:rgb(128, 128, 128);
+    font-size:12px;
+}
