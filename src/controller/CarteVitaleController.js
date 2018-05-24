@@ -6,7 +6,7 @@ export default class CarteVitaleController extends React.Component {
   constructor(props){
     super(props)
     this.state = {carteVitales:null};
-    var wakuUpsRef = firebase.database().ref("carte_vitale");
+    var carteVitaleRef = firebase.database().ref("carte_vitale");
     let callback_ = function(snapshot) {
         let snapshotValue = snapshot.val()
         let carteVitales = []
@@ -18,7 +18,7 @@ export default class CarteVitaleController extends React.Component {
         this.setState({carteVitales:carteVitales});
     }
     callback_ = callback_.bind(this);
-    wakuUpsRef.on("value", callback_, function (errorObject) {
+    carteVitaleRef.on("value", callback_, function (errorObject) {
       console.log("The read failed: " + errorObject.code);
     });
   }
