@@ -32,7 +32,7 @@ export default class CarteVitaleController extends React.Component {
         <table>
         {this.state.carteVitales && this.state.carteVitales.map(function(carteVitale, idx){
         return (
-          <CarteVitaleCell carteVitale={carteVitale} onValidate={this.onValidate} />
+          <CarteVitaleCell carteVitale={carteVitale} onValidate={this.onValidate} last={ idx == (this.state.carteVitales.length - 1) } />
         )
       },this)}
       </table>
@@ -42,12 +42,13 @@ export default class CarteVitaleController extends React.Component {
 }
 class CarteVitaleCell extends React.Component {
   render(){
+    console.log(this.props.last );
     return  (
-        <div className="carteVitaleTableRow">
+        <div className={this.props.last ? "carteVitaleTableRow last" : "carteVitaleTableRow"}>
           <div>
             <div className="title">{this.props.carteVitale.email}</div>
             <div className="details">{this.props.carteVitale.imageUrl}</div>
-            <div className="carteVitaleTableRowButtons" >
+            <div className={ "carteVitaleTableRowButtons"} >
               <Button className="pt-small"  onClick={() => this.props.onValidate(this.props.carteVitale)}>Validate</Button>
             </div>
           </div>
