@@ -49,13 +49,14 @@ class CarteVitaleCell extends React.Component {
     this.state = {};
     var storageRef = firebase.storage().ref();
     storageRef.child(this.props.carteVitale.imageUrl).getDownloadURL().then(function(imageUrl) {
-      console.log(imageUrl);
+
       this.setState({imageUrl:imageUrl});
-    }).catch(function(error) {
+    }.bind(this)).catch(function(error) {
 
     });
   }
   render(){
+    console.log(this.state.imageUrl);
     return  (
         <div className={this.props.last ? "carteVitaleTableRow last" : "carteVitaleTableRow"}>
           <div>
