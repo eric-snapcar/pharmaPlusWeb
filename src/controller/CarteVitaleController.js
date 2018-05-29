@@ -42,14 +42,26 @@ export default class CarteVitaleController extends React.Component {
     );
   }
 }
+
 class CarteVitaleCell extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {};
+    var storageRef = firebase.storage().ref();
+    storageRef.child(this.props.carteVitale.imageUrl).getDownloadURL().then(function(imageUrl) {
+      console.log(imageUrl);
+      this.setState({imageUrl:imageUrl});
+    }).catch(function(error) {
+
+    });
+  }
   render(){
-    console.log(this.props.last );
     return  (
         <div className={this.props.last ? "carteVitaleTableRow last" : "carteVitaleTableRow"}>
           <div>
             <div className="title">{this.props.carteVitale.email}</div>
             <div className="details">{this.props.carteVitale.imageUrl}</div>
+            <img className="loginControllerSnapcarIcon" src={this.state.imageUrl}  alt="" />
             <div className={ "carteVitaleTableRowButtons"} >
               <Button className="pt-small"  onClick={() => this.props.onValidate(this.props.carteVitale)}>Validate</Button>
             </div>

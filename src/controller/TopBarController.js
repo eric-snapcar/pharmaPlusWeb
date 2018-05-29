@@ -7,8 +7,8 @@ export default class TopBarController extends React.Component {
   }
   render() {
     return (
-      <div className="topController">
-        Test
+      <div className="topBarController">
+      <img className="loginControllerSnapcarIcon" src="/static/logo.svg"  alt="" />
       </div>
     );
   }

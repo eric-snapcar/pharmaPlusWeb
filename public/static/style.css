@@ -15,12 +15,12 @@ body {
 .rootController, .loginController, .mainController{
   width: 100%;
   height: 100%;
-  display: flex;
+
 }
 .loginController{
   justify-content: center;
   align-items: center;
-  background-color: #008F69;
+  background-color: #003f7a;
 }
 
 element.style {
@@ -43,7 +43,7 @@ element.style {
 .carteVitaleController  {
   width: 100%;
   max-width: 950px;
-  margin: 37px;
+  margin: 25px;
 }
 .carteVitaleController h2{
   color: #162643;
@@ -98,4 +98,15 @@ element.style {
 .carteVitaleTableRow .details, .popOverFocusContent .details, .popOverRegisterContent .details {
     color:rgb(128, 128, 128);
     font-size:12px;
+}
+.topBarController{
+  background-color: #003f7a;
+  height: 54px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.topBarController img {
+  margin-left: 20px;
+  height: 25px;
 }
