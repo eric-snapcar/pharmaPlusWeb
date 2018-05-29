@@ -8,7 +8,7 @@ export default class MainController extends React.Component {
   }
   render() {
     return (
-      <div className="rootController">
+      <div className="mainController">
         <CarteVitaleController />
       </div>
     );

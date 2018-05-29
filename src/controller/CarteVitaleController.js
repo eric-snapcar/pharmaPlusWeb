@@ -1,7 +1,8 @@
 import React from 'react';
-import {Button,ControlGroup,InputGroup, Intent} from "@blueprintjs/core";
+import {Button,ControlGroup,InputGroup, Intent, Spinner} from "@blueprintjs/core";
 import * as firebase from 'firebase';
 import CarteVitale from '../object/CarteVitale';
+import TableLoading from '../component/Table';
 export default class CarteVitaleController extends React.Component {
   constructor(props){
     super(props)
@@ -31,10 +32,11 @@ export default class CarteVitaleController extends React.Component {
         <h2>Carte Vitale</h2>
         <table>
         {this.state.carteVitales && this.state.carteVitales.map(function(carteVitale, idx){
-        return (
-          <CarteVitaleCell carteVitale={carteVitale} onValidate={this.onValidate} last={ idx == (this.state.carteVitales.length - 1) } />
-        )
-      },this)}
+            return (
+              <CarteVitaleCell carteVitale={carteVitale} onValidate={this.onValidate} last={ idx == (this.state.carteVitales.length - 1) } />
+            )
+        },this)}
+        {!this.state.carteVitales && <TableLoading/>}
       </table>
       </div>
     );
