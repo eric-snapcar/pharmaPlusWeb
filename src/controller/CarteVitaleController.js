@@ -29,15 +29,12 @@ export default class CarteVitaleController extends React.Component {
   render() {
     return (
       <div className="carteVitaleController">
-        <h2>Carte Vitale</h2>
-        <table>
         {this.state.carteVitales && this.state.carteVitales.map(function(carteVitale, idx){
             return (
               <CarteVitaleCell carteVitale={carteVitale} onValidate={this.onValidate} last={ idx == (this.state.carteVitales.length - 1) } />
             )
         },this)}
         {!this.state.carteVitales && <TableLoading/>}
-      </table>
       </div>
     );
   }
@@ -57,15 +54,13 @@ class CarteVitaleCell extends React.Component {
   render(){
     console.log(this.state.imageUrl);
     return  (
-        <div className={this.props.last ? "carteVitaleTableRow last" : "carteVitaleTableRow"}>
-          <div>
+        <div className={"carteVitaleCell" }>
             <div className="title">{this.props.carteVitale.email}</div>
             <div className="details">{this.props.carteVitale.imageUrl}</div>
-            <img className="loginControllerSnapcarIcon" src={this.state.imageUrl}  alt="" />
-            <div className={ "carteVitaleTableRowButtons"} >
+            <div className="carteVitaleCellImageWrapper"><img src={this.state.imageUrl}  alt="" /></div>
+            <div className="carteVitaleCellButtons" >
               <Button className="pt-small"  onClick={() => this.props.onValidate(this.props.carteVitale)}>Validate</Button>
             </div>
-          </div>
         </div>
     )
   }

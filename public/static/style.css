@@ -42,8 +42,11 @@ element.style {
 
 .carteVitaleController  {
   width: 100%;
-  max-width: 950px;
   margin: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .carteVitaleController h2{
   color: #162643;
@@ -77,10 +80,30 @@ element.style {
   border-bottom: 1px solid rgb(221, 223, 226);
   position: relative;
 }
+.carteVitaleCell{
+  width: 387px;
+  padding: 16px;
+  margin-bottom: 18px;
+  border: 1px solid rgb(221, 223, 226);
+  position: relative;
+}
+.carteVitaleCellImageWrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+}
+.carteVitaleCell img{
+  width:71%;
+}
 .carteVitaleTableRow .pt-tag{
   padding: 0px 5px;
   margin-left: 3px;
   font-size: 11px;
+}
+.carteVitaleCellButtons{
+  display: flex;
+  flex-direction: row-reverse;
 }
 .carteVitaleTableRow.empty{
   justify-content: center;
@@ -90,15 +113,13 @@ element.style {
 .carteVitaleTableRow.last{
   border-bottom: 0px solid rgb(221, 223, 226);
 }
-.carteVitaleTableRow img{
-  height: 30px;
-}
-.carteVitaleTableRow .title, .popOverFocusContent .title, .popOverRegisterContent .title{
+
+.carteVitaleTableRow .title, .popOverFocusContent .title, .popOverRegisterContent .title, .carteVitaleCell .title{
     color:rgb(29, 33, 41);
     font-size:14px;
     font-weight:700;
 }
-.carteVitaleTableRow .details, .popOverFocusContent .details, .popOverRegisterContent .details {
+.carteVitaleTableRow .details, .popOverFocusContent .details, .popOverRegisterContent .details, .carteVitaleCell .details {
     color:rgb(128, 128, 128);
     font-size:12px;
 }
