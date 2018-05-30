@@ -1,3 +1,4 @@
+import DateService from '../service/DateService';
 export default class CarteVitale {
   // MARK: class override
     constructor(json){
@@ -6,5 +7,11 @@ export default class CarteVitale {
           this.imageUrl = json.file_path;
           this.timestamp = json.timestamp;
         }
+    }
+    descriptionDate(){
+      if(this.timestamp != null){
+          return DateService.display(this.timestamp);
+      }
+      return null;
     }
 }
