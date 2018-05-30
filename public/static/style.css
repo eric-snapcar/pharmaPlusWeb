@@ -92,9 +92,14 @@ element.style {
   align-items: center;
   justify-content: center;
   margin: 15px;
+  height: 300px;
 }
 .carteVitaleCell img{
-  width:71%;
+  height: 100%;
+  width: 300px;
+  background-color: #F5F6F8;
+ 
+  border-radius: 2px;
 }
 .carteVitaleTableRow .pt-tag{
   padding: 0px 5px;

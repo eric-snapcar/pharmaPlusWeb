@@ -48,7 +48,7 @@ class CarteVitaleCell extends React.Component {
     storageRef.child(this.props.carteVitale.imageUrl).getDownloadURL().then(function(imageUrl) {
         this.setState({imageUrl:imageUrl});
     }.bind(this)).catch(function(error) {
-
+        console.log(error);
     });
   }
   render(){
@@ -57,9 +57,12 @@ class CarteVitaleCell extends React.Component {
         <div className={"carteVitaleCell" }>
             <div className="title">{this.props.carteVitale.email}</div>
             <div className="details">{this.props.carteVitale.imageUrl}</div>
-            <div className="carteVitaleCellImageWrapper"><img src={this.state.imageUrl}  alt="" /></div>
+            <div className="carteVitaleCellImageWrapper">
+                { this.state.imageUrl && <img src={this.state.imageUrl}  alt="" />}
+                { !this.state.imageUrl && <Spinner className="pt-small"/>}
+            </div>
             <div className="carteVitaleCellButtons" >
-              <Button className="pt-small"  onClick={() => this.props.onValidate(this.props.carteVitale)}>Validate</Button>
+              <Button className="pt-small"  onClick={() => this.props.onValidate(this.props.carteVitale)}>Valider</Button>
             </div>
         </div>
     )
