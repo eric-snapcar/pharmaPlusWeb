@@ -4,6 +4,7 @@ export default class CarteVitale {
         if ( json ) {
           this.email = json.email;
           this.imageUrl = json.file_path;
+          this.timestamp = json.timestamp;
         }
     }
 }
