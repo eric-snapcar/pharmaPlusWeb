@@ -52,11 +52,10 @@ class CarteVitaleCell extends React.Component {
     });
   }
   render(){
-    console.log(this.state.imageUrl);
     return  (
         <div className={"carteVitaleCell" }>
             <div className="title">{this.props.carteVitale.email}</div>
-            <div className="details">{this.props.carteVitale.imageUrl}</div>
+            <div className="details">{this.props.carteVitale.descriptionDate()}</div>
             <div className="carteVitaleCellImageWrapper">
                 { this.state.imageUrl && <img src={this.state.imageUrl}  alt="" />}
                 { !this.state.imageUrl && <Spinner className="pt-small"/>}

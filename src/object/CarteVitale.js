@@ -9,9 +9,12 @@ export default class CarteVitale {
         }
     }
     descriptionDate(){
+      return DateService.display(new Date());
+      /*
       if(this.timestamp != null){
-          return DateService.display(this.timestamp);
+          return DateService.display(new Date());
       }
       return null;
+      */
     }
 }
