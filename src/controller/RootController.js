@@ -20,7 +20,7 @@ export default class RootController extends React.Component {
   render() {
     return (
       <div className="rootController">
-        {this.state.currentUser == null && <LoginController loading = {this.state.loadingAuth}/>}
+        {this.state.currentUser == null && <LoginController loadingAuth = {this.state.loadingAuth}/>}
         {this.state.currentUser != null && <MainController currentUser = {this.state.currentUser} />}
       </div>
     );
