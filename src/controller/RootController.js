@@ -14,11 +14,11 @@ export default class RootController extends React.Component {
       storageBucket: "pharmaplus-782c8.appspot.com",
       messagingSenderId: "191482422002"
     };
+    this.state = {currentUser:null};
     firebase.initializeApp(config);
-    FirebaseAuthService.observe((user) => {
-        if(user){
-            console.log(user);
-        }else {
+    FirebaseAuthService.observeAuth((currentUser) => {
+        this.setState({currentUser : currentUser});
+        if(currentUser ==  null){
             console.log("Not Logged In");
         }
     });
@@ -26,7 +26,8 @@ export default class RootController extends React.Component {
   render() {
     return (
       <div className="rootController">
-        <LoginController/>
+        {this.state.currentUser == null && <LoginController/>}
+        {this.state.currentUser != null && <MainController/>}
       </div>
     );
   }
