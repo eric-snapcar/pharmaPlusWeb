@@ -1,4 +1,5 @@
 import React from 'react';
+import * as firebase from 'firebase';
 import {Button,ControlGroup,InputGroup, Intent} from "@blueprintjs/core";
 export default class RootController extends React.Component {
   constructor(props){
@@ -6,7 +7,17 @@ export default class RootController extends React.Component {
     this.state = {email:null}
   }
   onTapLoginButton(){
-    console.log("onTapLoginButton");
+      console.log("onTapLoginButton");
+      // TEST
+      login(email,password);
+  }
+  login(email,password){
+    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // ...
+    });
   }
   render() {
     return (

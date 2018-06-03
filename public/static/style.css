@@ -21,6 +21,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #003f7a;
+  display:flex;
 }
 
 element.style {
@@ -98,7 +99,7 @@ element.style {
   height: 100%;
   width: 300px;
   background-color: #F5F6F8;
- 
+
   border-radius: 2px;
 }
 .carteVitaleTableRow .pt-tag{

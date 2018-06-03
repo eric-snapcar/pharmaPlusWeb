@@ -18,7 +18,7 @@ export default class RootController extends React.Component {
   render() {
     return (
       <div className="rootController">
-        <MainController/>
+        <LoginController/>
       </div>
     );
   }
