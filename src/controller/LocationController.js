@@ -2,7 +2,7 @@ import React from 'react';
 import * as firebase from 'firebase';
 import moment from 'moment';
 import Location from '../object/Location';
-import User from '../object/User';
+import UserOld from '../object/UserOld';
 export default class LocationController extends React.Component {
   constructor(props){
     super(props)
@@ -13,7 +13,7 @@ export default class LocationController extends React.Component {
         let snapshotValue = snapshot.val()
         let users = []
         for (var key in snapshotValue) {
-          let user = new User(snapshotValue[key]);
+          let user = new UserOld(snapshotValue[key]);
           users.push(user);
         }
         this.setState({users:users});

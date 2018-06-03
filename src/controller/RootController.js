@@ -17,7 +17,7 @@ export default class RootController extends React.Component {
     firebase.auth().onAuthStateChanged(function(user) {
         console.log(user);
         if (user) {
-        // User is signed in.
+        // UserOld is signed in.
         } else {
         // No user is signed in.
         }
