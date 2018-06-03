@@ -1,6 +1,7 @@
 import React from 'react';
 import LoginController from './LoginController';
 import MainController from './MainController';
+import User from '../object/User';
 import * as firebase from 'firebase';
 export default class RootController extends React.Component {
   constructor(props){
