@@ -5,6 +5,9 @@ export default class RootController extends React.Component {
     super(props)
     this.state = {email:null}
   }
+  onTapLoginButton(){
+    console.log("onTapLoginButton");
+  }
   render() {
     return (
       <div className="loginController">
@@ -13,7 +16,7 @@ export default class RootController extends React.Component {
               <ControlGroup  style={{backgroundColor:"white","borderRadius":"3px"}}vertical={true}>
                   <InputGroup  className="pt-large" icon="person" placeholder="Email" value={this.state.email}  placeholder="Email" ref={(input) => { this.emailTextView = input; }} onChange={this.onChangeEmail}/>
                   <InputGroup className="pt-large" icon="lock" placeholder="Password" type="password" value={this.state.password}  placeholder="Password" ref={(input) => { this.passwordTextView = input; }} onChange={this.onChangePassword} onKeyPress={this.keyPressPassword}/>
-                  <Button className="pt-large" loading={this.state.loading} onClick={this.login}>Log In</Button>
+                  <Button className="pt-large" loading={this.state.loading} onClick={this.onTapLoginButton}>Log In</Button>
               </ControlGroup>
           </div>
       </div>
