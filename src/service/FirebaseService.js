@@ -11,4 +11,14 @@ export default class FirebaseService {
           }
       });
     }
+    static signOut(callback){
+      firebase.auth().signOut().then(function() {
+      }).catch(function(error) {
+        if(callback){
+          callback(error);
+        }else{
+          console.log(error);
+        }
+      });
+    }
 }
