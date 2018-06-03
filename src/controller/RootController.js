@@ -1,7 +1,7 @@
 import React from 'react';
 import LoginController from './LoginController';
 import MainController from './MainController';
-import User from '../object/User';
+import FirebaseAuthService from '../service/FirebaseAuthService';
 import * as firebase from 'firebase';
 export default class RootController extends React.Component {
   constructor(props){
@@ -15,13 +15,11 @@ export default class RootController extends React.Component {
       messagingSenderId: "191482422002"
     };
     firebase.initializeApp(config);
-    firebase.auth().onAuthStateChanged(function(firebaseUser) {
-        if (firebaseUser) {
-          let user = new User(firebaseUser);
-          console.log(user);
-        } else {
-          console.log("Not logged In");
-        // No user is signed in.
+    FirebaseAuthService.observeAuth((user) => {
+        if(user){
+            console.log(user);
+        }else {
+            console.log("Not Logged In");
         }
     });
   }
