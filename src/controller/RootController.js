@@ -5,34 +5,25 @@ import FirebaseService from '../service/FirebaseService';
 export default class RootController extends React.Component {
   constructor(props){
     super(props)
-    this.state = {currentUser:null,loading:false};
-
+    this.state = {currentUser:null,loadingAuth:false};
   }
   componentDidMount(){
-    this.setState({loading:true})
+    this.setState({loadingAuth:true})
     FirebaseService.observeAuth((currentUser) => {
-        this.setState({currentUser : currentUser,loading:false});
         if(currentUser ==  null){
-            console.log("Not Logged In");
+          this.setState({currentUser : null,loadingAuth:false});
+        }else {
+          this.setState({currentUser : currentUser,loadingAuth:false});
         }
     });
 
   }
   render() {
-    if(this.state.loading){
-      return (
-        <div className="rootController">
-            Loading ...
-        </div>
-      );
-    }
-    else {
-        return (
-          <div className="rootController">
-            {this.state.currentUser == null && <LoginController/>}
-            {this.state.currentUser != null && <MainController/>}
-          </div>
-        );
-    }
+    return (
+      <div className="rootController">
+        {this.state.currentUser == null && <LoginController loading = {this.state.loadingAuth}/>}
+        {this.state.currentUser != null && <MainController currentUser = {this.state.currentUser} />}
+      </div>
+    );
   }
 }
