@@ -5,12 +5,13 @@ export default class RootController extends React.Component {
   constructor(props){
     super(props)
     this.state = {email:null}
+    this.onTapLoginButton = this.onTapLoginButton.bind(this);
   }
   onTapLoginButton(){
-      this.login("eric@snapcar.com","karpov");
+      this.signIn("eric@snapcar.com","karpov");
   }
-  login(email,password){
-    FirebaseService.createUser(email, password,(error) => {
+  signIn(email,password){
+    FirebaseService.signIn(email, password,(error) => {
         if(error){
           console.log(error);
         }

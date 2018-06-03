@@ -22,6 +22,17 @@ export default class FirebaseService {
           }
       });
     }
+    static signIn(email,password,callback){
+      firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+          if(callback != null){
+              callback(error);
+          }else {
+            if(error ){
+                console.log(error);
+            }
+          }
+      });
+    }
     static signOut(callback){
       firebase.auth().signOut().then(function() {
       }).catch(function(error) {
