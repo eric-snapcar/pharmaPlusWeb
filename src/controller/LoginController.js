@@ -24,7 +24,7 @@ export default class RootController extends React.Component {
       <div className="loginController">
           <div className="loginViewWrapper">
               <img className="loginControllerSnapcarIcon" src="/static/logo.svg"  alt="" />
-              {this.props.loading && <Spinner />}
+              {this.props.loading && <Spinner className="pt-large" />}
               {!this.props.loading &&
                   <ControlGroup  style={{backgroundColor:"white","borderRadius":"3px"}}vertical={true}>
                       <InputGroup  className="pt-large" icon="person" placeholder="Email" value={this.state.email}  placeholder="Email" ref={(input) => { this.emailTextView = input; }} onChange={this.onChangeEmail}/>
