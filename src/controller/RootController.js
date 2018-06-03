@@ -15,7 +15,7 @@ export default class RootController extends React.Component {
       messagingSenderId: "191482422002"
     };
     firebase.initializeApp(config);
-    FirebaseAuthService.observeAuth((user) => {
+    FirebaseAuthService.observe((user) => {
         if(user){
             console.log(user);
         }else {
