@@ -12,7 +12,15 @@ export default class FirebaseService {
       });
     }
     static createUser(email,password,callback){
-        // TO DO
+      firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+          if(callback != null){
+              callback(error);
+          }else {
+            if(error ){
+                console.log(error);
+            }
+          }
+      });
     }
     static signOut(callback){
       firebase.auth().signOut().then(function() {
@@ -20,7 +28,9 @@ export default class FirebaseService {
         if(callback){
           callback(error);
         }else{
-          console.log(error);
+          if(error ){
+              console.log(error);
+          }
         }
       });
     }

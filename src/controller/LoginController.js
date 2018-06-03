@@ -11,9 +11,10 @@ export default class RootController extends React.Component {
       this.login("eric_hong_2000@yahoo.fr","karpov");
   }
   login(email,password){
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-        var errorCode = error.code;
-        var errorMessage = error.message;
+    FirebaseService.createUser(email, password,(error) => {
+        if(error){
+          console.log(error);
+        }
     });
   }
   render() {
