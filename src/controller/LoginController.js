@@ -1,5 +1,6 @@
 import React from 'react';
 import * as firebase from 'firebase';
+import FirebaseService from '../service/FirebaseService';
 import {Button,ControlGroup,InputGroup, Intent} from "@blueprintjs/core";
 export default class RootController extends React.Component {
   constructor(props){
