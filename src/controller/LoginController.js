@@ -7,9 +7,7 @@ export default class RootController extends React.Component {
     this.state = {email:null}
   }
   onTapLoginButton(){
-      console.log("onTapLoginButton");
-      // TEST
-      login("eric_hong_2000@yahoo.fr","rouge");
+      this.login("eric_hong_2000@yahoo.fr","rouge");
   }
   login(email,password){
     firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
