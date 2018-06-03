@@ -16,7 +16,6 @@ export default class RootController extends React.Component {
           this.setState({currentUser : currentUser,loadingAuth:false});
         }
     });
-
   }
   render() {
     return (
