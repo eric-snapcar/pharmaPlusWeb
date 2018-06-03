@@ -9,14 +9,12 @@ export default class RootController extends React.Component {
   onTapLoginButton(){
       console.log("onTapLoginButton");
       // TEST
-      login(email,password);
+      login("eric_hong_2000@yahoo.fr","rouge");
   }
   login(email,password){
     firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // ...
+        var errorCode = error.code;
+        var errorMessage = error.message;
     });
   }
   render() {
