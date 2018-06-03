@@ -1,17 +1,18 @@
 import React from 'react';
 import {Button,ControlGroup,InputGroup, Intent} from "@blueprintjs/core";
-import * as firebase from 'firebase';
+import FirebaseService from '../service/FirebaseService';
 export default class TopBarController extends React.Component {
   constructor(props){
     super(props)
     // this.state = {email:null}
   }
   logOut(){
-      firebase.auth().signOut().then(function() {
-          console.log("signOut OK");
-      }).catch(function(error) {
+    FirebaseService.signOut((error) =>{
+        if(error){
           console.log(error);
-      });
+        }
+    }
+  );
   }
   render() {
     return (
