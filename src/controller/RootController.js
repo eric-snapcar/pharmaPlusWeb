@@ -14,6 +14,14 @@ export default class RootController extends React.Component {
       messagingSenderId: "191482422002"
     };
     firebase.initializeApp(config);
+    firebase.auth().onAuthStateChanged(function(user) {
+        console.log(user);
+        if (user) {
+        // User is signed in.
+        } else {
+        // No user is signed in.
+        }
+    });
   }
   render() {
     return (
