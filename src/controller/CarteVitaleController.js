@@ -7,7 +7,7 @@ export default class CarteVitaleController extends React.Component {
   constructor(props){
     super(props)
     this.state = {carteVitales:null};
-    var carteVitaleRef = firebase.database().ref("carte_vitale");
+    var carteVitaleRef = firebase.database().ref("carte_vitale").orderByKey();
     let callback_ = function(snapshot) {
         let snapshotValue = snapshot.val()
         let carteVitales = []
