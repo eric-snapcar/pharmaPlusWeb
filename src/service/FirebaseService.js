@@ -11,6 +11,9 @@ export default class FirebaseService {
           }
       });
     }
+    static createUser(email,password,callback){
+        // TO DO
+    }
     static signOut(callback){
       firebase.auth().signOut().then(function() {
       }).catch(function(error) {
